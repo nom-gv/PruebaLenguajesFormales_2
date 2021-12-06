@@ -3,25 +3,32 @@
 @author: NOEMI
 """
 
-def calculadora(s, r, m, d):
-    a = int(input("Primer Numero Entrada: "))
-    b = int(input("Segundo Numero Entrada: "))
-    s(a, b)
-    r(a, b)
-    m(a, b)
-    d(a, b)
+def calculadora(o,a,b):
+    switcher = {
+        "+": suma(a,b),
+        "-": resta(a,b),
+        "*": multiplicacion(a, b),
+        "/": division(a,b),
+    }     
+    return switcher.get(o)
     
     
 def suma(x, y):
-    print("Suma:",x+y)
+    return x+y
     
 def resta(x, y):
-    print("Resta:",x-y)
+    return x-y
     
 def multiplicacion(x, y):
-    print("Multiplicacion",x*y)
+    return x*y
     
 def division(x, y):
-    print("Division:",x/y)
+    return x/y
 
-calculadora(suma, resta, multiplicacion, division)
+
+a = int(input("Primer Numero Entrada: "))
+b = int(input("Segundo Numero Entrada: "))
+print("Suma:",calculadora("+",a,b))
+print("Resta:",calculadora("-",a,b))
+print("Multiplicacion:",calculadora("*",a,b))
+print("Division:",calculadora("/",a,b))
