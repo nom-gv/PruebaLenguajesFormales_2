@@ -1,24 +1,25 @@
 # -*- coding: utf-8 -*-
 """
-Created on Mon Dec  6 10:44:00 2021
-
 @author: NOEMI
 """
 
-def calculadora():
-    a = int(input("Primer Numero Entrada: "))
-    b = int(input("Segundo Numero Entrada: "))
-    
+def calculadora(o,a,b):
     suma = lambda x,y: x+y
-    print("Suma:", suma(a,b))
-    
     resta = lambda x,y: x-y
-    print("Resta:",resta(a,b))
-    
     multiplicacion = lambda x,y: x*y
-    print("Multiplicacion:",multiplicacion(a,b))
+    division = lambda x,y: x/y
+    switcher = {
+        "+" : suma(a,b),
+        "-" : resta(a,b),
+        "*" : multiplicacion(a,b),
+        "/" : division(a,b), 
+    }
+    return switcher.get(o)
     
-    division=lambda x,y: x/y
-    print("Division:",division(a,b))
-    
-calculadora()
+
+a = int(input("Primer Numero Entrada: "))
+b = int(input("Segundo Numero Entrada: "))
+print("Suma:",calculadora("+",a,b))
+print("Resta:",calculadora("-",a,b))
+print("Multiplicacion:",calculadora("*",a,b))
+print("Division:",calculadora("/",a,b))
